@@ -1,0 +1,37 @@
+type Product {
+  # Example field (placeholder)
+  name: String!
+  brand: String!
+  type: ProductType!
+
+}
+enum ProductType {
+  BUZO
+  CAMPERA
+  REMERA
+  HOODIE
+}
+
+input CreateProductInput {
+  # Example field (placeholder)
+  name: String!
+  brand: String!
+  type: ProductType!
+}
+
+input UpdateProductInput {
+  name: String!
+  brand: String
+  type: ProductType
+}
+
+type Query {
+  products: [Product]
+  product(name: String!): Product
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  removeProduct(id: Int!): Product
+}
